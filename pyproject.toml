@@ -1,0 +1,110 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+ensure_newline_before_comments = true
+force_grid_wrap = 0
+include_trailing_comma = true
+line-length = 120
+multi_line_output = 4
+target_version = ['py36', 'py37', 'py38', 'py39']
+use_parentheses = true
+include = '\.pyi?$'
+exclude = '''
+'''
+
+[tool.coverage.paths]
+source = ["stoys", "*/site-packages"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.coverage.run]
+branch = true
+source = ["stoys"]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+strict = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+
+[tool.poetry]
+name = "stoys"
+version = "0.4.5"
+description = "Stoys: Spark Tools @ stoys.io"
+authors = ["Stoys Authors <authors@stoys.io>"]
+license = "Apache License 2.0"
+# readme = "README.md"
+# homepage = "https://stoys.io"
+repository = "https://github.com/stoys-io/stoys-python"
+# documentation = "https://stoys.readthedocs.io"
+keywords = []
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Typing :: Typed",
+]
+packages = [{ include = "stoys" }]
+include = ['deps/_embedded/*.jar', 'deps/_embedded/*.js']
+
+[tool.poetry.dependencies]
+# dataclasses-json = "^0.5.6"
+# ipython = { version = ">=7,<8", optional = true }
+jupyterlab = { version = ">=3,<4", optional = true }
+# pandas = { version = ">=1,<2", optional = true }
+pandas = ">=1,<2"
+pyserde = ">=0.5.0"
+# pyspark = { version = ">=3,<3.3", optional = true }
+pyspark = ">=3,<3.3"
+python = ">=3.6.2,<4"
+# typeguard = "^2.13.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9b0"
+coverage = { extras = ["toml"], version = "^5.5" }
+darglint = "^1.8.1"
+flake8 = "^3.9.2"
+flake8-annotations = "^2.7.0"
+flake8-bandit = "^2.1.2"
+flake8-black = "^0.2.3"
+flake8-bugbear = "^21.9.2"
+flake8-commas = "^2.1.0"
+flake8-comprehensions = "^3.7.0"
+flake8-docstrings = "^1.6.0"
+flake8-isort = "^4.1.1"
+flake8-rst-docstrings = "^0.2.3"
+isort = "^5.9.3"
+mypy = "^0.910"
+# pep8-naming = "^0.12.1"
+pre-commit = "^2.15.0"
+pre-commit-hooks = "^4.0.1"
+pytest = "^6.2.5"
+pytest-flake8 = "^1.0.7"
+pytest-rerunfailures = "^10.2"
+pytest-runner = "^5.3.1"
+# safety = "^1.10.3"
+
+# [tool.poetry.extras]
+# pandas = ["pandas"]
+# pyspark = ["pyspark"]
+
+# [tool.poetry.plugins."poetry.plugin"]
+# stoys-plugin = "stoys.deps.poetry_plugin:PoetryStoysPlugin"
+
+[tool.poetry.scripts]
+get-deps = "stoys.deps.download:download_dependencies"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/stoys-io/stoys-python/issues"

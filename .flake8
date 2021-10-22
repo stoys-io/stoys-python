@@ -1,0 +1,58 @@
+[flake8]
+; docstring-convention = google
+exclude =
+    .git
+    .github
+    .vscode
+    __pycache__
+    build
+    dist
+    releases
+    tmp
+ignore =
+    # Missing type annotation for self in method
+    ANN101,
+    # Line too long (80 characters limit)
+    B950,
+    # Unnecessary dict call - rewrite as a literal.
+    C408,
+    # Continuation line over-indented for hanging indent
+    E126,
+    # Continuation line over-indented for visual indent
+    E127,
+    # Continuation line under-indented for visual indent
+    E128,
+    # Whitespace before ':' (black does not like it)
+    E203,
+    # Line too long (79 characters limit)
+    E501,
+    # Function name should be lowercase
+    N802,
+; import-order-style = google
+max-complexity = 16
+max-line-length = 120
+per-file-ignores =
+    tests/*:S101,ANN
+    noxfile.py:ANN
+; rst-roles = class,const,func,meth,mod,ref
+; rst-directives = deprecated
+select =
+    ANN,  # https://github.com/sco1/flake8-annotations
+    B,    # https://github.com/PyCQA/flake8-bugbear
+    B9,   # https://github.com/PyCQA/flake8-bugbear (optional rules)
+    BLK,  # https://github.com/peterjc/flake8-black
+    ; D,    # https://gitlab.com/pycqa/flake8-docstrings
+    ; D9,   # https://github.com/pycqa/flake8-docstrings (optional rules)
+    ; DAR,  # https://github.com/terrencepreilly/darglint
+    C,    # ???
+    C4,   # https://github.com/adamchainz/flake8-comprehensions
+    C8,   # https://github.com/PyCQA/flake8-commas
+    C9,   # https://github.com/PyCQA/mccabe (code complexity)
+    E,    # https://www.python.org/dev/peps/pep-0008/ (errors)
+    F,    # https://github.com/PyCQA/pyflakes
+    I,    # https://github.com/PyCQA/flake8-import-order
+    N,    # ???
+    N8,   # https://github.com/PyCQA/pep8-naming
+    ; RST,  # https://github.com/peterjc/flake8-rst-docstrings
+    S,    # https://github.com/PyCQA/bandit
+    W,    # https://www.python.org/dev/peps/pep-0008/ (warnings)
