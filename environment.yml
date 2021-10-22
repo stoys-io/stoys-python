@@ -9,3 +9,4 @@ dependencies:
   - python =3.9
   - pip:
       - pyserde >=0.5.0
+      - stoys ==0.4.6
