@@ -8,11 +8,11 @@ force_grid_wrap = 0
 include_trailing_comma = true
 line-length = 120
 multi_line_output = 4
-target_version = ['py36', 'py37', 'py38', 'py39']
+target_version = ["py36", "py37", "py38", "py39"]
 use_parentheses = true
-include = '\.pyi?$'
-exclude = '''
-'''
+include = "\\.pyi?$"
+exclude = """
+"""
 
 [tool.coverage.paths]
 source = ["stoys", "*/site-packages"]
@@ -37,7 +37,7 @@ show_error_context = true
 
 [tool.poetry]
 name = "stoys"
-version = "0.4.5"
+version = "0.4.6"
 description = "Stoys: Spark Tools @ stoys.io"
 authors = ["Stoys Authors <authors@stoys.io>"]
 license = "Apache License 2.0"
@@ -57,7 +57,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 packages = [{ include = "stoys" }]
-include = ['deps/_embedded/*.jar', 'deps/_embedded/*.js']
+include = ["stoys/deps/_embedded/*.jar", "stoys/deps/_embedded/*.js"]
 
 [tool.poetry.dependencies]
 # dataclasses-json = "^0.5.6"
